@@ -2,12 +2,14 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 import { serve } from "inngest/express";
-import {clerkMiddleware} from "@clerk/express";
+import { clerkMiddleware } from "@clerk/express";
 
 import { ENV } from "./lib/env.js";
 import { connectDB } from "./lib/db.js";
 import { inngestClient, functions } from "./lib/inngest.js";
+
 import chatRoutes from "./routes/chatRoutes.js";
+import sessionRoutes from "./routes/sessionRoutes.js";
 
 const app = express();
 const PORT = ENV.PORT || 5000;
@@ -23,6 +25,7 @@ app.use(clerkMiddleware());
 
 app.use("/api/inngest", serve({ client: inngestClient, functions }));
 app.use("/api/chat", chatRoutes);
+app.use("/api/sessions", sessionRoutes);
 
 //Test Route
 app.get("/test", (req, res) => {
