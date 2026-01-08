@@ -1,0 +1,11 @@
+//frontend
+react
+clerk (https://clerk.com/)
+
+//backend
+nodejs
+express
+mongodb (https://cloud.mongodb.com/)
+clerk (https://clerk.com/)
+stream (https://beta.dashboard.getstream.io/)
+inngest (https://www.inngest.com/)
